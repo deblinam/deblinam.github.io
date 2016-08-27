@@ -1,44 +1,356 @@
----
-layout: default
----
-<div class="col-sm-12">
-    <div class="page">
-        {% for post in site.posts %}
-            {% if post.archive == false %}
-            <div class="page-item">
-                <div class="col-sm-8">
-                    <ul class="page-item-title">
-                        <li><time class="timeago meta" datetime="{{ post.date |  date: "%A %-d %B %Y" }}">{{ post.date }}</time>
-                        <a class="meta pull-right comments-meta" href="{{ post.url | prepend: site.url }}#disqus_thread">0 <i class="fa fa-comments-o fa-lg"></i></a></li>
-                        <li><a class="title" href="{{ post.url | prepend: site.url }}">{{ post.title }}</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 hide-on-phone">
-                    <ul class="page-item-title pull-right meta">
-                        <li><a href="{{ post.url | prepend: site.url }}#disqus_thread">0 <i class="fa fa-comments-o fa-lg"></i></a></li>
-                        <li><a href="{{ post.url | prepend: site.url }}">more <i class="fa fa-ellipsis-h"></i></a></li>
-                        <li><a class="pib-indicator">gist <i class="fa fa-expand"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-12 page-item-body">
-                    {{post.excerpt}}
-                </div>
-            </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-</div>
-<script>
-$(document).ready(function() {
-    $(".page").children().first().find(".page-item-body").css( "display", "block" );
-    $(".page").children().first().find(".pib-indicator")
-        .find("i").toggleClass("fa-compress").toggleClass("fa-expand");
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Deblina Mondal - Home</title>
+<link rel="stylesheet" type="text/css" href="https://people.eecs.berkeley.edu/~shubhtuls/style.css">
 
-    $(".page-item .pib-indicator").click(function() {
-        var preview = $(this);
-        preview.find("i").toggleClass("fa-expand").toggleClass("fa-compress");
-        $(this).closest(".page-item").find(".page-item-body").toggle("slow", function() {});
-    });
-});
+<script type="text/javascript" src="https://people.eecs.berkeley.edu/~shubhtuls/js/hidebib.js"></script>
+
+</head>
+<body>
+<table id="main">
+<tr>
+  <td><table width="80%" align="center" border="0" cellspacing="0" cellpadding="20">
+    <tr>
+      <td width="78%" ><table id="main2">
+        <tr>
+          <td width="1412" id="header">Deblina Mondal
+            <hr /></td>
+        </tr>
+        <tr valign="top">
+          <td><table>
+            <tr>
+              <td width="1007" valign="top">I am a  graduate student with <a href = "http://www.eecs.berkeley.edu/~malik">Prof. Jitendra Malik</a> in the <a href="http://www.eecs.berkeley.edu/Research/Projects/CS/vision/">Vision group</a> at <a href="http://www.berkeley.edu">University of California, Berkeley</a>. I did my undergraduate at the <a href="http://www.cse.iitk.ac.in">Indian Institute of Technology, Kanpur</a> under the supervision of <a href="http://www.cse.iitk.ac.in/users/sbaswana/">Prof. Surender Baswana</a>. I also did an undergraduate internship at <a href="http://research.microsoft.com/en-us/labs/newengland/"> Microsoft Research, New England</a> with <a href="http://research.microsoft.com/en-us/um/people/adum/">Dr. Adam Kalai</a>.
+                <p align>
+  <a href="javascript:toggleblock('email')">email</a> | <a href="https://people.eecs.berkeley.edu/~shubhtuls/CV.pdf">cv</a> | <a href="https://github.com/shubhtuls">github</a> | <a href="https://scholar.google.com/citations?user=06rffEkAAAAJ&hl=en">google scholar</a>
+  </p>
+  <pre xml:space="preserve" id="email">
+shubhtuls AT cs DOT berkeley DOT edu
+</pre>
+  <script xml:space="preserve" language="JavaScript">
+	hideblock('email');
 </script>
+  </td>
+              <td width="397"><img src="https://people.eecs.berkeley.edu/~shubhtuls/img.jpg" alt="My picture" height=250 align="right"/></td>
+              </tr>
+            </table></td>
+        </tr>
+        
+        <tr>
+          <td><h3 align="left" id="maintext2">Projects</h3>
+            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/pami16reconstruction.png" width="207" height="100" style="border-style: none" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">Learning Category-Specific Deformable 3D Models for Object Reconstruction</b> <br />
+                  <strong>Shubham Tulsiani*</strong>, <a href="http://www.cs.berkeley.edu/~akar/">Abhishek Kar</a>*, <a href="http://www.eecs.berkeley.edu/~carreira/">Jo&atilde;o Carreira</a>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a> <br />
+                  TPAMI, 2016 (to appear)<br />
+                  * equal contribution<br />
+                  <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/pami16reconstruction.pdf">pdf</a> &nbsp <a href="javascript:toggleblock('pami16reconstructionAbs')">abstract </a>&nbsp<a href="javascript:toggleblock('pami16reconstructionBib')"> bibtex</a> &nbsp <a href="https://github.com/akar43/CategoryShapes">code</a></p>
+                  <p><i id = "pami16reconstructionAbs">We address the problem of fully automatic object localization and reconstruction from a single image. This is both a very challenging and very important problem which has, until recently, received limited attention due to difficulties in segmenting objects and predicting their poses. Here we leverage recent advances in learning convolutional networks for object detection and segmentation and introduce a complementary network for the task of camera viewpoint prediction. These predictors are very powerful, but still not perfect given the stringent requirements of shape reconstruction. Our main contribution is a new class of deformable 3D models that can be robustly fitted to images based on noisy pose and silhouette estimates computed upstream and that can be learned directly from 2D annotations available in object detection datasets. Our models capture top-down information about the main global modes of shape variation within a class providing a ``low-frequency'' shape. In order to capture fine instance-specific shape details, we fuse it with a high-frequency component recovered from shading cues. A comprehensive quantitative analysis and ablation study on the PASCAL 3D+ dataset validates the approach as we show fully automatic reconstructions on PASCAL VOC as well as large improvements on the task of viewpoint prediction.</i></p>
+                  <pre xml:space="preserve" id="pami16reconstructionBib">
+@article{pamishapeTulsianiKCM15,
+author = {Shubham Tulsiani and
+Abhishek Kar and
+Jo{\~{a}}o Carreira and
+Jitendra Malik},
+title = {Learning Category-Specific Deformable 3D
+Models for Object Reconstruction},
+journal = {TPAMI},
+year = {2016},
+}
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('pami16reconstructionAbs');
+			hideblock('pami16reconstructionBib');
+			</script>
+              </tr>
+	          <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/arxiv16flow.png" width="207" height="70" style="border-style: none" align="top" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">View Synthesis by Appearance Flow</b><br />
+                <a href="http://www.cs.berkeley.edu/~tinghuiz/">Tinghui Zhou</a>, <strong>Shubham Tulsiani</strong>,
+                        <a href="http://sunweilun.github.io/">Weilun Sun</a>,
+                        <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a>,
+                        <a href="http://www.cs.berkeley.edu/~efros/">Alexei A. Efros</a><br />
+                  arXiv, May 2016<br />
+                  <a href="http://arxiv.org/pdf/1605.03557v1.pdf">pdf</a> &nbsp <a href="javascript:toggleblock('arxiv16flowAbs')">abstract</a> &nbsp <a href="javascript:toggleblock('arxiv16flowBib')">bibtex</a></p>
+                  <p><em id="arxiv16flowAbs">Given one or more images of an object (or a scene), is it possible to synthesize a new image of the same instance observed from an arbitrary viewpoint? In this paper, we attempt to tackle this problem, known as novel view synthesis, by re-formulating it as a pixel copying task that avoids the notorious difficulties of generating pixels from scratch. Our approach is built on the observation that the visual appearance of different views of the same instance is highly correlated. Such correlation could be explicitly learned by training a convolutional neural network (CNN) to predict \emph{appearance flows} -- 2-D coordinate vectors specifying which pixels in the input view could be used to reconstruct the target view. We show that for both objects and scenes, our approach is able to generate higher-quality synthesized views with crisp texture and boundaries than previous CNN-based techniques. </em></p>
+                  <pre xml:space="preserve" id="arxiv16flowBib">
+@incollection{appFlowZhou16,
+author = {Tinghui Zhou and 
+Shubham Tulsiani and 
+Weilun Sun and
+Jitendra Malik and
+Alexei A. Efros},
+title = {View Synthesis by Appearance Flow},
+booktitle = arxiv:1605.03557,
+year = {2016}
+}
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('arxiv16flowAbs');
+			hideblock('arxiv16flowBib');
+			</script>
+              </tr>
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/prl16rrr.png" width="207" height="100" style="border-style: none" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">The three R's of computer vision: Recognition, Reconstruction and Reorganization</b> <br /> Jitendra Malik, Pablo Arbelaez, Jo&atilde;o Carreira, Katerina Fragkiadaki, 
+Ross Girshick, Georgia Gkioxari, Saurabh Gupta, Bharath Hariharan, Abhishek Kar, <strong>Shubham Tulsiani</strong> <br />
+                  Pattern Recognition Letters, 2016<br />
+                  <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/prl16rrr.pdf">pdf</a> &nbsp <a href="javascript:toggleblock('prl16rrrAbs')">abstract </a>&nbsp<a href="javascript:toggleblock('prl16rrrBib')"> bibtex</a></p>
+                  <p><i id = "prl16rrrAbs">We argue for the importance of the interaction between recognition, reconstruction and re-organization, and propose that as a unifying framework for computer vision. In this view, recognition of objects is reciprocally linked to re-organization, with bottom-up grouping processes generating candidates, which can be classified using top down knowledge, following which the segmentations can be refined again. Recognition of 3D objects could benefit from a reconstruction of 3D structure, and 3D reconstruction can benefit from object category-specific priors. We also show that reconstruction of 3D structure from video data goes hand in hand with the reorganization of the scene. We demonstrate pipelined versions of two systems, one for RGB-D images, and another for RGB images, which produce rich 3D scene interpretations in this framework.</i></p>
+                  <pre xml:space="preserve" id="prl16rrrBib">
+@article{malik2016three,
+title={The three R's of computer vision:
+  Recognition, reconstruction and reorganization},
+author={Malik, Jitendra and
+  Arbel{\'a}ez, Pablo and
+  Carreira, Jo{\~a}o and
+Fragkiadaki, Katerina and
+Girshick, Ross and
+Gkioxari, Georgia and
+Gupta, Saurabh and
+Hariharan, Bharath and
+Kar, Abhishek and
+Tulsiani, Shubham},
+journal={Pattern Recognition Letters},
+volume={72},
+pages={4--14},
+year={2016},
+publisher={North-Holland}
+}
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('prl16rrrBib');
+			hideblock('prl16rrrAbs');
+		</script>
+              </tr>
+	          <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/arxiv15shape.png" width="207" height="97" style="border-style: none" align="top" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">Shape and Symmetry Induction for 3D  Objects</b><br />
+                  <strong>Shubham Tulsiani</strong>, <a href="http://www.cs.berkeley.edu/~akar/">Abhishek Kar</a>, <a href="http://ttic.uchicago.edu/~huangqx/">Qixing Huang</a>, <a href="http://www.eecs.berkeley.edu/~carreira/">Jo&atilde;o Carreira</a>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a><br />
+                  arXiv, November 2015<br />
+                  <a href="http://arxiv.org/abs/1511.07845.pdf">pdf</a> &nbsp <a href="javascript:toggleblock('arxiv15shapeAbs')">abstract</a> &nbsp <a href="javascript:toggleblock('arxiv15shapeBib')">bibtex</a></p>
+                  <p><em id="arxiv15shapeAbs">Actions as simple as grasping an object or navigating around it require a rich understanding of that object's 3D shape from a given viewpoint. In this paper we repurpose powerful learning machinery, originally developed for object classification, to discover image cues relevant for recovering the 3D shape of potentially unfamiliar objects. We cast the problem as one of local prediction of surface normals and global detection of 3D reflection symmetry planes, which open the door for extrapolating occluded surfaces from visible ones. We demonstrate that our method is able to recover accurate 3D shape information for classes of objects it was not trained on, in both synthetic and real images.</em></p>
+                  <pre xml:space="preserve" id="arxiv15shapeBib">
+@incollection{shapeSymTulsianiKHCM15,
+author = {Shubham Tulsiani and 
+Abhishek Kar and
+Qixing Huang and 
+Jo{\~{a}}o Carreira and 
+Jitendra Malik},
+title = {Shape and Symmetry Induction 
+for 3D Objects},
+booktitle = arxiv:1511.07845,
+year = {2015},
+}
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('arxiv15shapeAbs');
+			hideblock('arxiv15shapeBib');
+			</script>
+              </tr>
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/iccv15poseInd.png" width="207" height="90" style="border-style: none" align="top" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">Pose Induction for Novel Object Categories</b><br />
+                  <strong>Shubham Tulsiani</strong>,<a href="http://www.eecs.berkeley.edu/~carreira/"> Jo&atilde;o Carreira</a>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a><br />
+                  ICCV, 2015<br />
+                  <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/iccv15poseInduction.pdf">pdf</a> &nbsp <a href="javascript:toggleblock('iccv15poseIndAbs')">abstract</a> &nbsp <a href="javascript:toggleblock('iccv15poseIndBib')">bibtex</a> &nbsp <a href="https://github.com/shubhtuls/poseInduction">code</a></p>
+                  <p><i id = "iccv15poseIndAbs">We address the task of predicting pose for objects of unannotated object categories from a small seed set of annotated object classes. We present a generalized classifier that can reliably induce pose given a single instance of a novel category. In case of availability of a large collection of novel instances, our approach then jointly reasons over all instances to improve the initial estimates. We empirically validate the various components of our algorithm and quantitatively show that our method produces reliable pose estimates. We also show qualitative results on a diverse set of classes and further demonstrate the applicability of our system for learning shape models of novel object classes.</i></p>
+                  <pre xml:space="preserve" id="iccv15poseIndBib">
+@inProceedings{poseInductionTCM15,
+  author    = {Shubham Tulsiani and
+               Jo{\~{a}}o Carreira and
+               Jitendra Malik},
+  title     = {Pose Induction for Novel Object Categories},
+  year={2015},
+  booktitle={International Conference on Computer Vision (ICCV)}
+}
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('iccv15poseIndAbs');
+			hideblock('iccv15poseIndBib');
+			</script>
+              </tr>
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/iccv15amodal.png" width="207" height="105" style="border-style: none" align="top" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">Amodal Completion and Size Constancy in Natural Scenes</b><br />
+                  <a href="http://www.cs.berkeley.edu/~akar/">Abhishek Kar</a>, <strong>Shubham Tulsiani</strong>, <a href="http://www.eecs.berkeley.edu/~carreira/">Jo&atilde;o Carreira</a>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a><br />
+                  ICCV, 2015<br />
+                  <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/iccv15amodal.pdf">pdf</a> &nbsp <a href="javascript:toggleblock('iccv15amodalAbs')">abstract</a> &nbsp <a href="javascript:toggleblock('iccv15amodalBib')">bibtex </a></p>
+                  <p><i id = "iccv15amodalAbs">We consider the problem of enriching current object detection systems with veridical object sizes and relative depth estimates from a single image. There are several technical challenges to this, such as occlusions, lack of calibration data and the scale ambiguity between object size and distance. These have not been addressed in full generality in previous work. Here we propose to tackle these issues by building upon advances in object recognition and using recently created large-scale datasets. We first introduce the task of amodal bounding box completion, which aims to infer the the full extent of the object instances in the image. We then propose a probabilistic framework for learning category-specific object size distributions from available annotations and leverage these in conjunction with amodal completions to infer veridical sizes of objects in novel images. Finally, we introduce a focal length prediction approach that exploits scene recognition to overcome inherent scale ambiguities and demonstrate qualitative results on challenging real-world scenes.</i></p>
+                  <pre xml:space="preserve" id="iccv15amodalBib">
+ @inProceedings{amodalKTCM15,
+  author    = {Abhishek Kar and
+               Shubham Tulsiani and
+               Jo{\~{a}}o Carreira and
+               Jitendra Malik},
+  title     = {Amodal Completion and Size Constancy in Natural Scenes},
+  year={2015},
+  booktitle={International Conference on Computer Vision (ICCV)}
+ }
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('iccv15amodalAbs');
+			hideblock('iccv15amodalBib');
+			</script>
+              </tr>
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/cvpr15vpsKps.png" width="207" height="100" style="border-style: none" align="top" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">Viewpoints and Keypoints</b><br />
+                  <strong>Shubham Tulsiani</strong>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a><br />
+                  CVPR, 2015<br />
+                  <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/cvpr15vpsKps.pdf">pdf </a>&nbsp <a href="javascript:toggleblock('cvpr15vpsKpsAbs')">abstract </a>&nbsp<a href="javascript:toggleblock('cvpr15vpsKpsBib')"> bibtex </a>&nbsp <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/cvpr15vpsKpsSupp.pdf">supplemental (40 MB)</a> &nbsp <a href="https://github.com/shubhtuls/ViewpointsAndKeypoints">code</a></p>
+                  <p><i id = "cvpr15vpsKpsAbs">We characterize the problem of pose estimation for rigid objects in terms of determining viewpoint to explain coarse pose and keypoint prediction to capture the finer details. We address both these tasks in two different settings - the constrained setting with known bounding boxes and the more challenging detection setting where the aim is to simultaneously detect and correctly estimate pose of objects. We present Convolutional Neural Network based architectures for these and demonstrate that leveraging viewpoint estimates can substantially improve local appearance based keypoint predictions. In addition to achieving significant improvements over state-of-the-art in the above tasks, we analyze the error modes and effect of object characteristics on performance to guide future efforts towards this goal.</i></p>
+                  <pre xml:space="preserve" id="cvpr15vpsKpsBib">
+@inProceedings{vpsKpsTulsianiM15,
+author    = {Shubham Tulsiani and Jitendra Malik},
+title     = {Viewpoints and Keypoints},
+year={2015},
+booktitle={Computer Vision and Pattern Regognition (CVPR)}
+}</pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('cvpr15vpsKpsAbs');
+			hideblock('cvpr15vpsKpsBib');
+			</script>
+              </tr>
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/cvpr15reconstruction.png" width="207" height="115" style="border-style: none" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">Category-Specific Object Reconstruction from a Single Image</b> <br />
+                  <a href="http://www.cs.berkeley.edu/~akar/">Abhishek Kar</a>*, <strong>Shubham Tulsiani*</strong>, <a href="http://www.eecs.berkeley.edu/~carreira/">Jo&atilde;o Carreira</a>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a> <br />
+                  CVPR, 2015 <strong style="color:red">(Best Student Paper Award)</strong><br />
+                  * equal contribution<a href="https://people.eecs.berkeley.edu/~shubhtuls/categoryShapes.pdf"><br />
+                  </a><a href="javascript:toggleblock('categoryReconAbs')"> </a><a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/cvpr15reconstruction.pdf">pdf</a> &nbsp <a href="http://www.cs.berkeley.edu/~akar/categoryShapes/">project page</a> &nbsp <a href="javascript:toggleblock('cvpr15reconstructionAbs')">abstract </a>&nbsp<a href="javascript:toggleblock('cvpr15reconstructionBib')"> bibtex</a> &nbsp <a href="https://github.com/akar43/CategoryShapes">code</a></p>
+                  <p><i id = "cvpr15reconstructionAbs">Object reconstruction from a single image - in the wild - is a problem where we can make progress and get meaningful results today. This is the main message of this paper, which introduces an automated pipeline with pixels as inputs and 3D surfaces of various rigid categories as outputs in images of realistic scenes. At the core of our approach are deformable 3D models that can be learned from 2D annotations available in existing object detection datasets, that can be driven by noisy automatic object segmentations and which we complement with a bottom-up module for recovering high-frequency shape details. We perform a comprehensive quantitative analysis and ablation study of our approach using the recently introduced PASCAL 3D+ dataset and show very encouraging automatic reconstructions on PASCAL VOC.</i></p>
+                  <pre xml:space="preserve" id="cvpr15reconstructionBib">
+@inProceedings{shapesKarTCM15,
+  author    = {Abhishek Kar and
+               Shubham Tulsiani and
+               Jo{\~{a}}o Carreira and
+               Jitendra Malik},
+  title     = {Category-Specific Object Reconstruction from a Single Image},
+  year={2015},
+  booktitle={Computer Vision and Pattern Regognition (CVPR)}
+}
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('cvpr15reconstructionAbs');
+			hideblock('cvpr15reconstructionBib');
+			</script>
+              </tr>
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/cvpr15vvn.png" width="207" height="83" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">Virtual View Networks for Object Reconstruction</b><br />
+                  <a href="http://www.eecs.berkeley.edu/~carreira/"> Jo&atilde;o Carreira</a>,<a href="http://www.eecs.berkeley.edu/~akar/"> Abhishek Kar</a>, <strong>Shubham Tulsiani</strong>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a><br />
+                  CVPR, 2015<br />
+                  <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/cvpr15vvn.pdf">pdf</a> &nbsp <a href="javascript:toggleblock('cvpr15vvnAbs')">abstract </a> &nbsp <a href="javascript:toggleblock('cvpr15vvnBib')">bibtex</a> &nbsp <a href="https://www.youtube.com/watch?v=JfDJji5sYXE&feature=youtu.be"> video</a> &nbsp <a href="http://www.cs.berkeley.edu/~carreira/vvn/">code</a> <br />
+                </p>
+                  <p><i id = "cvpr15vvnAbs">All that structure from motion algorithms &quot;see&quot; are sets of 2D points. We show that these impoverished views of the world can be faked for the purpose of reconstructing objects in challenging settings, such as from a single image, or from a few ones far apart, by recognizing the object and getting help from a collection of images of other objects from the same class. We synthesize virtual views by computing geodesics on novel networks connecting objects with similar viewpoints, and introduce techniques to increase the specificity and robustness of factorization-based object reconstruction in this setting. We report accurate object shape reconstruction from a single image on challenging PASCAL VOC data, which suggests that the current domain of applications of rigid structure-from-motion techniques may be significantly extended.</i></p>
+                  <pre xml:space="preserve" id="cvpr15vvnBib">
+@inProceedings{vvnCarreiraKTM15,
+  author    = {Jo{\~{a}}o Carreira and
+               Abhishek Kar and
+               Shubham Tulsiani and
+               Jitendra Malik},
+  title     = {Virtual View Networks for Object Reconstruction},
+  year={2015},
+  booktitle={Computer Vision and Pattern Regognition (CVPR)}
+}</pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('cvpr15vvnAbs');
+			hideblock('cvpr15vvnBib');
+			</script>
+              </tr>
+              <tr>
+                <td width="22%" valign="top"><p><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/uist13.png" width="207" height="91" align="left" /></p></td>
+                <td width="78%" valign="top"><p><b id="papertitle">A colorful approach to text processing by example</b><br />
+                  <a href="http://people.csail.mit.edu/kuat/">Kuat Yessenov</a>,<strong> Shubham Tulsiani</strong>, <a href="http://cseweb.ucsd.edu/~akmenon/">Aditya Menon</a>, <a href="http://people.csail.mit.edu/rcm/">Robert C Miller</a>, <a href="http://research.microsoft.com/en-us/um/people/sumitg/">Sumit Gulwani</a>,<a href="http://research.microsoft.com/en-us/um/people/blampson/"> Butler Lampson</a>, <a href="http://research.microsoft.com/en-us/um/people/adum/">Adam Kalai</a><br />
+                  UIST, 2013<br />
+                  <a href="https://people.eecs.berkeley.edu/~shubhtuls/papers/uist13colors.pdf">pdf</a><em> </em> &nbsp <a href="javascript:toggleblock('uist13Abs')">abstract </a> &nbsp <a href="javascript:toggleblock('uist13Bib')">bibtex</a><br />
+                </p>
+                  <p><i id = "uist13Abs">Text processing, tedious and error-prone even for programmers, remains one of the most alluring targets of Programming by Example. An examination of real-world text processing tasks found on help forums reveals that many such tasks, beyond simple string manipulation, involve latent hierarchical structures.<br />
+                    We present STEPS, a programming system for processing structured and semi-structured text by example. STEPS users create and manipulate hierarchical structure by example. In a between-subject user study on fourteen computer scientists, STEPS compares favorably to traditional programming.</i></p>
+                  <pre xml:space="preserve" id="uist13Bib">
+@inproceedings{yessenov2013colorful,
+  title={A colorful approach to text processing by example},
+  author={Yessenov, Kuat and 
+  Tulsiani, Shubham and 
+  Menon, Aditya and 
+  Miller, Robert C and 
+  Gulwani,Sumit and 
+  Lampson, Butler and 
+  Kalai, Adam},
+  booktitle={UIST},
+  pages={495--504},
+  year={2013},
+  organization={ACM}
+}
+            </pre></td>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('uist13Abs');
+			</script>
+                <script language="javascript" type="text/javascript" xml:space="preserve">
+			hideblock('uist13Bib');
+			</script>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr>
+     <!--    <td><h3 align="left" id="maintext2">Teaching</h3>
+            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+              <tr>
+                <td width="22%" valign="top"><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/compPhoto.jpg" width="68" height="99" align="left" /><img src="https://people.eecs.berkeley.edu/~shubhtuls/figures/cs188.png" width="73" height="100" align="left" /></td>
+                <td width="78%" valign="center"><p> <a href="http://inst.eecs.berkeley.edu/~cs188/fa10/announcements.html">
+                  <heading></heading>
+                  </a><a href="http://inst.eecs.berkeley.edu/~cs194-26/fa14/"><b id="papertitle3">Image Manipulation and Computational Photography (CS194-26)</b></a><br />
+                  <heading>Fall 2014 (GSI)</heading>
+                </p>
+                  <p><a href="https://edge.edx.org/courses/BerkeleyX/CS188x-SP15/SP15/info"><b id="papertitle2">Introduction to Artificial Intelligence (CS188)</b></a><br />
+                    <heading>Spring 2015 (GSI)</heading>
+                  </p>
+                  <p><br />
+                  </p></td>
+              </tr>
+            </table>
+            </td>   -->
+        </tr>
+      </table>
+    </tr>
+  </table></td>
+</tr>
+</table>
+<div align="right"><font size="2">[Web-cite] : The webpage template is based on <a href="http://jonbarron.info/">Jon</a> and <a href="http://www.cs.berkeley.edu/~bharath2/">Bharath</a>'s websites</font></div>
+
+<!-- Start of StatCounter Code for Dreamweaver -->
+<script type="text/javascript">
+var sc_project=10151299; 
+var sc_invisible=1; 
+var sc_security="212475e4"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="http://statcounter.com/free-web-stats/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/10151299/0/212475e4/1/"
+alt="free web stats"></a></div></noscript>
+<!-- End of StatCounter Code for Dreamweaver -->
+
+<!-- Start of Google Analytics Code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60320583-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
